@@ -3,7 +3,7 @@ import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { validator } from 'hono/validator';
 
-import { validateEmail, emailRegex } from './email-regex';
+import { validateEmail, emailRegex } from './email-validator';
 
 const app = new Hono();
 
