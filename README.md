@@ -1,6 +1,6 @@
 # Email Validator As A Service [EVaaS]
 
-This is based on the RFC 5322 Official Standard. This service is made for fun based on this tweet using the perl RFC5322 email regex: https://twitter.com/mSykeCodes/status/1788446683921285238
+This is based on the RFC 5322 Official Standard. This service is made for fun based on this tweet that is using the perl RFC5322 email regex: https://twitter.com/mSykeCodes/status/1788446683921285238
 
 ## Usage
 
