@@ -33,5 +33,5 @@ npm run deploy
 ## Run the test.http file
 
 ```
-httpyac test.http
+httpyac test/local.http
 ```

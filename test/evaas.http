@@ -1,0 +1,17 @@
+
+### Valid email address
+POST https://evaas.dothash.workers.dev/
+Content-Type: application/json
+
+{
+  "email": "what@what.com"
+}
+
+
+### Invalid email address
+POST https://evaas.dothash.workers.dev/
+Content-Type: application/json
+
+{
+  "email": "what@what"
+}
