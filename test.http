@@ -1,0 +1,16 @@
+### Valid email address
+POST http://localhost:8787/
+Content-Type: application/json
+
+{
+  "email": "what@what.com"
+}
+
+
+### Invalid email address
+POST http://localhost:8787/
+Content-Type: application/json
+
+{
+  "email": "what@what"
+}

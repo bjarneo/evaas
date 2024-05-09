@@ -29,3 +29,9 @@ npm run dev
 ```
 npm run deploy
 ```
+
+## Run the test.http file
+
+```
+httpyac test.http
+```
