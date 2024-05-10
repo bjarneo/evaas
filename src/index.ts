@@ -40,10 +40,7 @@ app.get('/', (ctx) => {
         </body>
       </html>
     `);
-});
-
-app.post(
-    '/',
+}).post(
     validator('json', async (_, ctx) => {
         const email = (await ctx.req.json()).email;
         if (!validateEmail(email)) {
