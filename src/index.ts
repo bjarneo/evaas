@@ -17,23 +17,44 @@ enum EmailStatus {
 app.use('/*', cors());
 app.use(logger());
 
-app.get('/', (c) => {
-    return c.text(`${RFC5322}- ${emailRegex.source}`);
+app.get('/', (ctx) => {
+    return ctx.html(`
+      <html>
+        <body>
+          <h1>${RFC5322}</h1>
+          <h2>Regex</h2>
+          <p>${emailRegex.source}</p>
+          <h3>Usage</h3>
+          <pre> 
+            # Using CURL
+            curl -X POST -H "Content-Type: application/json" -d '{"email":"what@what.com"}' https://evaas.dothash.workers.dev
+            {"message":"RFC 5322 - Valid email address","status":1}
+
+            # Using HTTPie
+            http -b https://evaas.dothash.workers.dev email=what@wat.com
+            {
+              "message": "RFC 5322 - Valid email address",
+              "status": 1
+            }
+          </pre>
+        </body>
+      </html>
+    `);
 });
 
 app.post(
     '/',
-    validator('json', async (_, c) => {
-        const email = (await c.req.json()).email;
+    validator('json', async (_, ctx) => {
+        const email = (await ctx.req.json()).email;
         if (!validateEmail(email)) {
-            return c.json(
+            return ctx.json(
                 { message: `${RFC5322} - Invalid email address`, status: EmailStatus.INVALID },
                 { status: 400 }
             );
         }
     }),
-    (c) => {
-        return c.json(
+    (ctx) => {
+        return ctx.json(
             { message: `${RFC5322} - Valid email address`, status: EmailStatus.VALID },
             { status: 200 }
         );
