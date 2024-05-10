@@ -35,3 +35,6 @@ npm run deploy
 ```
 httpyac test/local.http
 ```
+
+## Disclaimer 
+This is not a serious project. 
